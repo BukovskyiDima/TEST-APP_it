@@ -1,35 +1,50 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 const plugins = [
   new webpack.HotModuleReplacementPlugin(),
+  new CleanWebpackPlugin(['dist']),
   new ExtractTextPlugin({
-    filename: 'styles.css',
+    filename: 'main.bundle.css',
     allChunks: true
   })
 ];
 
 module.exports = {
-  entry: './index.js',
-  context: path.resolve('src/js'),
+  entry: [
+    './js/index.js',
+    './scss/main.scss'
+  ],
+  context: path.resolve('src'),
   output: {
     filename: 'bundle-[name].js'
   },
 
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {loader: "css-loader"},
-            {loader: "sass-loader"}
-          ]
-        })
-      }
+    rules: [{
+          test: /\.(sass|scss)$/,
+          include: path.resolve(__dirname, 'src/scss'),
+          use: ExtractTextPlugin.extract({
+            use: [{
+              loader: "css-loader",
+              options: {
+                sourceMap: true,
+                minimize: true,
+                url: false
+              }
+            },
+              {
+                loader: "sass-loader",
+                options: {
+                  sourceMap: true
+                }
+              }
+            ]
+          })
+        }
     ]
   },
 

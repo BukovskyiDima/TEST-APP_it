@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c55b63721d5815d4a8a0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e59a0e21a1089b98b6b8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -759,19 +759,41 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./index.js")(__webpack_require__.s = "./index.js");
+/******/ 	return hotCreateRequire(0)(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./index.js":
-/*!******************!*\
-  !*** ./index.js ***!
-  \******************/
+/***/ "./js/index.js":
+/*!*********************!*\
+  !*** ./js/index.js ***!
+  \*********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log('появился ли css?');\r\n\r\nlet doc = document,\r\n  redBlock = doc.querySelector('.red');\r\n\r\nif (redBlock.style.background == 'red') {\r\n  console.log('появился');\r\n} else {\r\n  console.log('нет')\r\n}\n\n//# sourceURL=webpack:///./index.js?");
+eval("console.log('появился ли css?');\r\n\r\nlet doc = document,\r\n  redBlock = doc.querySelector('.red'),\r\n  greenBlock = doc.querySelector('.green');\r\n\r\nconsole.log(getComputedStyle(greenBlock).backgroundColor);\r\n\r\nif (getComputedStyle(greenBlock).backgroundColor == 'rgb(0, 128, 0)') {\r\n  console.log('появился');\r\n} else {\r\n  console.log('нет')\r\n}\n\n//# sourceURL=webpack:///./js/index.js?");
+
+/***/ }),
+
+/***/ "./scss/main.scss":
+/*!************************!*\
+  !*** ./scss/main.scss ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./scss/main.scss?");
+
+/***/ }),
+
+/***/ 0:
+/*!********************************************!*\
+  !*** multi ./js/index.js ./scss/main.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! ./js/index.js */\"./js/index.js\");\nmodule.exports = __webpack_require__(/*! ./scss/main.scss */\"./scss/main.scss\");\n\n\n//# sourceURL=webpack:///multi_./js/index.js_./scss/main.scss?");
 
 /***/ })
 
