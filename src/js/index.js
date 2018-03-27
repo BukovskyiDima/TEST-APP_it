@@ -1,13 +1,16 @@
-console.log('появился ли css?');
+import rest from "./rest";
+import createList from "./createList";
 
-let doc = document,
-  redBlock = doc.querySelector('.red'),
-  greenBlock = doc.querySelector('.green');
+document.addEventListener('DOMContentLoaded', function() {
+  let doc = document,
+    param = [];
 
-console.log(getComputedStyle(greenBlock).backgroundColor);
+  rest(function (list) {
+    param = list;
+    createList(list);
+  });
 
-if (getComputedStyle(greenBlock).backgroundColor == 'rgb(0, 128, 0)') {
-  console.log('появился');
-} else {
-  console.log('нет')
-}
+
+
+  console.log(param);
+});
