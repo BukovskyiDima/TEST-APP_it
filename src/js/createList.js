@@ -9,10 +9,12 @@ let createList = (list) => {
     let param = list[i];
     someText +=
       '<div class="row">'
-        + '<span>' + param.surname + '</span>'
-        + '<span>' + param.category + '</span>'
-        + '<span>' + param.importance + '</span>'
-        + '<input type="range" min="' + param.min + '" max="' + param.max + '" step="' + param.step + '" value="5">'
+        + '<a class="name">' + param.name + '</a>'
+        + '<div class="content-holder">'
+          + '<span class="category">' + param.category + '</span>'
+          + '<span class="importance">' + param.importance + '</span>'
+          + '<input type="range" min="' + param.min + '" max="' + param.max + '" step="' + param.step + '" value="">'
+        + '</div>'
       + '</div>';
   }
 

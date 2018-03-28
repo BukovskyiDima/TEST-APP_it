@@ -1,7 +1,6 @@
 [
   {
     "name": "name1",
-    "surname": "surname1",
     "category": "category1",
     "importance": "high",
     "min": "0",
@@ -10,7 +9,6 @@
   },
   {
     "name": "name2",
-    "surname": "surname2",
     "category": "category2",
     "importance": "low",
     "min": "0",
@@ -19,7 +17,6 @@
   },
   {
     "name": "name3",
-    "surname": "surname3",
     "category": "category3",
     "importance": "medium",
     "min": "0",
@@ -28,7 +25,6 @@
   },
   {
     "name": "name4",
-    "surname": "surname4",
     "category": "category4",
     "importance": "low",
     "min": "0",
