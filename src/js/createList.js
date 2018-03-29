@@ -14,7 +14,7 @@ let createList = (list) => {
           + '<span class="category">' + param.category + '</span>'
           + '<span class="importance">' + param.importance + '</span>'
           + '<input type="range" min="' + param.min + '" max="' + param.max + '" step="' + param.step + '" value="">'
-          + '<span class="value">You mast choose</span>'
+          + '<span class="value">You must choose</span>'
         + '</div>'
       + '</div>';
   }
