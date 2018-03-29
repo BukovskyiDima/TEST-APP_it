@@ -9,14 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     param = list;
     createList(list);
 
-    let name = doc.getElementsByClassName('name'),
-      i = 0;
+    let name = doc.getElementsByClassName('name');
     console.log(name);
 
-    for(; i < name.length; i++){
-      name[i].addEventListener('click',() => {
+    for(let i = 0; i < name.length; i++){
+      name[i].addEventListener('click', function() {
+
         this.classList.toggle('open');
-        console.log(this);
         let holder = this.nextElementSibling;
 
         if(holder.style.display === 'block') {
@@ -26,5 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+
+    let input = doc.getElementsByTagName("input"),
+        value = doc.getElementsByClassName('value');
+
+    for(let i = 0; i < input.length; i++) {
+
+      input[i].addEventListener('input', () => {
+          value[i].innerHTML = input[i].value;
+      });
+    }
+
+    console.log(input);
   });
 });
