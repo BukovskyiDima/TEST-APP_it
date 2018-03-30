@@ -1,20 +1,27 @@
-let rest = (callback) => {
-  let xhr = new XMLHttpRequest(),
-    dataIn;
+let rest = {
 
-  xhr.open('GET', 'db/dataIn.json', true);
-  xhr.send(null);
-  xhr.addEventListener('readystatechange', function() {
-    if (xhr.readyState != 4) return;
+  getParam (callback) {
+    let xhr = new XMLHttpRequest(),
+      dataIn;
 
-    if (xhr.status != 200) {
-      console.error(xhr.status);
-    } else {
-      dataIn = JSON.parse(xhr.responseText);
+    xhr.open('GET', 'db/dataIn.json', true);
+    xhr.send(null);
+    xhr.addEventListener('readystatechange', function() {
+      if (xhr.readyState != 4) return;
 
-      return callback(dataIn);
-    }
-  });
+      if (xhr.status != 200) {
+          console.error(xhr.status);
+      } else {
+        dataIn = JSON.parse(xhr.responseText);
+
+        return callback(dataIn);
+      }
+    });
+  }
+  //
+  // saveAnswer () {
+  //
+  // }
 };
 
 export default rest;

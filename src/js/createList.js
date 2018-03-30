@@ -14,10 +14,12 @@ let createList = (list) => {
           + '<span class="category">' + param.category + '</span>'
           + '<span class="importance">' + param.importance + '</span>'
           + '<input type="range" min="' + param.min + '" max="' + param.max + '" step="' + param.step + '" value="">'
-          + '<span class="value">You must choose</span>'
+          + '<p>Your choise: <span class="value">You must choose</span></p>'
         + '</div>'
       + '</div>';
   }
+
+  someText += '<button type="submit">Отправить</button>';
 
   paramBox.innerHTML = someText;
 };
