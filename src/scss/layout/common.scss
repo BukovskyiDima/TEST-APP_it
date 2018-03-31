@@ -12,6 +12,13 @@
 .row {
   @include animate(height);
 
+  & + & {
+    border-top: 1px solid $gray;
+  }
+}
+
+h2 {
+  padding-top: 15px;
 }
 
 .content-holder {
@@ -20,7 +27,15 @@
 
 .name {
   display: block;
-  background-color: #ff0;
+  padding: 10px 0;
+
+  .error & {
+    color: $red;
+  }
+
+  .success & {
+    color: $green;
+  }
 }
 
 .importance {
@@ -30,4 +45,51 @@
 input[type="range"] {
   display: block;
   width: 100%;
+  padding: 10px 0;
+}
+
+.success-section {
+  @include animate(opacity visibility);
+
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(black, 1);
+  color: $white;
+
+  .success & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .name {
+    color: $white;
+  }
+
+  .score-holder {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+button[type="submit"] {
+  @include animate(color background-color);
+
+  background-color: $white;
+  color: $gray;
+  border: 1px solid $gray;
+  border-radius: 15px;
+  padding: 10px 15px;
+  outline: none;
+
+  &:hover {
+    color: $white;
+    background-color: $gray;
+  }
 }

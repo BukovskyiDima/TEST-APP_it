@@ -38,23 +38,21 @@ document.addEventListener('DOMContentLoaded', function() {
     button.addEventListener('click', () => {
       let i = 0;
 
-      function haveClass(list) {
-          return list.parentElement.classList.contains('error');
-      }
-
       for(; i < name.length; i++) {
         if (value[i].textContent == 'You must choose') {
-          input[i].parentElement.classList.add('error');
+          input[i].parentElement.parentElement.classList.add('error');
         } else {
-          input[i].parentElement.classList.remove('error');
+          input[i].parentElement.parentElement.classList.remove('error');
+          input[i].parentElement.parentElement.classList.add('success');
         }
       }
 
+      let error = doc.querySelectorAll('.error');
 
-      // if (input.every(haveClass)) {
-      //   wrapper.classList.add('success');
-      //     getResult(name, input, value);
-      // }
+      if (error.length == 0) {
+        wrapper.classList.add('success');
+        getResult(name, input);
+      }
     });
   });
 });

@@ -1,31 +1,31 @@
 [
   {
-    "name": "name1",
-    "category": "category1",
+    "name": "name 1",
+    "category": "category 1",
     "importance": "high",
     "min": "0",
     "max": "10",
     "step": "1"
   },
   {
-    "name": "name2",
-    "category": "category2",
+    "name": "name 2",
+    "category": "category 2",
     "importance": "low",
     "min": "0",
     "max": "10",
     "step": "1"
   },
   {
-    "name": "name3",
-    "category": "category3",
+    "name": "name 3",
+    "category": "category 3",
     "importance": "medium",
     "min": "0",
     "max": "10",
     "step": "1"
   },
   {
-    "name": "name4",
-    "category": "category4",
+    "name": "name 4",
+    "category": "category 4",
     "importance": "low",
     "min": "0",
     "max": "10",
