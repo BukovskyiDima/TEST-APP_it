@@ -140,3 +140,4 @@ typings/
 **.hot-update.js
 
 /dist/
+/.idea/
