@@ -18,10 +18,6 @@ let rest = {
       }
     });
   }
-  //
-  // saveAnswer () {
-  //
-  // }
 };
 
 export default rest;
