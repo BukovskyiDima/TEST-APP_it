@@ -139,5 +139,4 @@ typings/
 **.hot-update.json
 **.hot-update.js
 
-/dist/
 /.idea
