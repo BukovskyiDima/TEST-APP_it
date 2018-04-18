@@ -143,7 +143,6 @@ typings/
 /.idea
 =======
 /dist/
-.idea/
 .idea/inspectionProfiles/
 .idea/modules.xml
 .idea/testItransition.iml
