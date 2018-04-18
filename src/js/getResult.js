@@ -3,11 +3,12 @@ let getResult = (name, input) => {
         scoreInput = input,
         allScoreInput = 0,
         averageValue = 0,
-        successBox = document.querySelector('.success-holder'),
-        someText = '';
+        successBox = wrapper.querySelector('.success-holder'),
+        someText = '',
+        i = 0;
 
 
-    for(let i = 0; i < scoreName.length; i++) {
+    for(; i < scoreName.length; i++) {
         allScoreInput += Number(scoreInput[i].value);
 
         someText +=

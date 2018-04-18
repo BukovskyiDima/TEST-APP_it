@@ -2,57 +2,55 @@ import rest from "./rest";
 import createList from "./createList";
 import getResult from "./getResult";
 
-document.addEventListener('DOMContentLoaded', function() {
-  let doc = document,
-    param = [];
+document.addEventListener('DOMContentLoaded', () => {
+	let param = [];
 
-  rest.getParam((list) => {
-    param = list;
-    createList(param);
+	rest.getParam((list) => {
+		param = list;
+		createList(param);
 
-    let name = doc.querySelectorAll('.name'),
-        input = doc.querySelectorAll('input'),
-        value = doc.querySelectorAll('.value'),
-        button = doc.querySelector('button'),
-        wrapper = doc.querySelector('#wrapper');
+		let wrapper = document.querySelector('#wrapper'),
+				name = wrapper.querySelectorAll('.name'), 
+				row = wrapper.querySelectorAll('.row'),
+				input = wrapper.querySelectorAll('input'),
+				value = wrapper.querySelectorAll('.value'),
+				button = wrapper.querySelector('button'),
+				holder = wrapper.querySelectorAll('holder'),
+				i = 0;
 
-    for(let i = 0; i < name.length; i++){
+		Array.prototype.forEach.call(row, (item) => {
+			item.addEventListener('click', (e) => {
+				if (e.target.tagName === 'A') {
+					e.target.nextSibling.style.display === 'block' ?
+					e.target.nextSibling.style.display = 'none' : 
+					e.target.nextSibling.style.display = 'block';
+				}
+			});
+		});
 
-      name[i].addEventListener('click', () => {
-        let holder = name[i].nextElementSibling;
+		Array.prototype.forEach.call(input, (item, i) => {
+			item.addEventListener('input', () => {
+				value[i].innerHTML = input[i].value;
+			})
+		});
 
-          name[i].classList.toggle('open');
+		button.addEventListener('click', () => {
 
-        if(holder.style.display === 'block') {
-          holder.style.display = 'none';
-        } else {
-          holder.style.display = 'block';
-        }
-      });
+			Array.prototype.forEach.call(value, (item) => {
+				if (item.textContent === 'You must choose') {
+					item.parentElement.parentElement.parentElement.classList.add('error');
+				} else {
+					item.parentElement.parentElement.parentElement.classList.remove('error');
+					item.parentElement.parentElement.parentElement.classList.add('success');
+				}
+			});
 
-      input[i].addEventListener('input', () => {
-        value[i].innerHTML = input[i].value;
-      });
-    }
+			let error = wrapper.querySelectorAll('.error');
 
-    button.addEventListener('click', () => {
-      let i = 0;
-
-      for(; i < name.length; i++) {
-        if (value[i].textContent == 'You must choose') {
-          input[i].parentElement.parentElement.classList.add('error');
-        } else {
-          input[i].parentElement.parentElement.classList.remove('error');
-          input[i].parentElement.parentElement.classList.add('success');
-        }
-      }
-
-      let error = doc.querySelectorAll('.error');
-
-      if (error.length == 0) {
-        wrapper.classList.add('success');
-        getResult(name, input);
-      }
-    });
-  });
+			if (error.length === 0) {
+				wrapper.classList.add('success');
+				getResult(name, input);
+			}
+		});
+	});
 });

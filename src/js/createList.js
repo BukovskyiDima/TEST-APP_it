@@ -10,7 +10,7 @@ let createList = (list) => {
     someText +=
       '<div class="row">'
         + '<a class="name">' + param.name + '</a>'
-        + '<div class="content-holder">'
+        + '<div class="content-holder holder">'
           + '<span class="category">Category name: ' + param.category + '</span>'
           + '<span class="importance">Importance: ' + param.importance + '</span>'
           + '<input type="range" min="' + param.min + '" max="' + param.max + '" step="' + param.step + '" value="">'

@@ -6,7 +6,7 @@ let rest = {
 
     xhr.open('GET', 'db/dataIn.json', true);
     xhr.send(null);
-    xhr.addEventListener('readystatechange', function() {
+    xhr.addEventListener('readystatechange', () => {
       if (xhr.readyState != 4) return;
 
       if (xhr.status != 200) {
